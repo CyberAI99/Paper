@@ -21,6 +21,8 @@
 % 检查是否为盲审版本
 \newif\ifWithOptionBlind 
 \@ifclasswith{buptthesis}{blind}{\WithOptionBlindtrue}{\WithOptionBlindfalse}
+% \newCJKfontfamily\RareCJK{FandolSong-Regular}
+% \newcommand{\yao}{{\RareCJK 垚}}
 \makeatother
 
 % 导入宏包
@@ -35,9 +37,14 @@
 % 导言区必须加载的宏包（确保公式环境正常）
 \usepackage{amsmath}  % 核心：支持equation/align等编号公式环境
 \usepackage{amssymb}  % 可选：提供勒让德多项式等数学符号
-
-
-
+\usepackage{ragged2e}
+% \usepackage{xeCJK}
+% \setCJKmainfont{SimSun} % Windows: SimSun；mac: Songti SC；Linux: Noto Serif CJK SC
+% \usepackage{xeCJK}
+% \setCJKmainfont{SimSun} % Windows: SimSun；mac: Songti SC；Linux: Noto Serif CJK SC
+% --- 生僻字“垚”兜底字体（Overleaf 自带 Fandol 字体，稳定可用）---
+% \newfontfamily\rareFont{resources/SourceHanSerifSC-Regular.otf}
+% \newcommand{\yao}{{\rareFont 垚}}
 
 % 定义使用的函数/宏
 \DeclareMathOperator{\Tr}{Tr}
@@ -54,7 +61,7 @@
 	confidential = {公开}, % 目前只支持公开
 	title = {面向三维光场显示的人脸光照编辑方法研究},  % 本章标题
 	studentid = {2023140412}, % 学号
-	name = {杨垚杰}, % 姓名
+	name = {杨\yao 杰}, % 姓名
 	major = {新一代电子信息科学与技术(含量子技术等)}, % 专业名称
 	supervisor = {桑新柱}, % 导师姓名
 	institute = {电子工程学院} % 单行学院的写法
@@ -74,9 +81,9 @@
 
 \BUPTthesisentitlepage{% 
 	confidentialEN = {Public},  % 目前只支持公开
-	titleEN = {Research on Face Relighting Methods for 3D Light Field Display}, % 本章标题
+	titleEN = {Research on Face Relighting \\ Methods for 3D Light Field Display}, % 本章标题
 	nameEN = {Yaojie Yang}, % 姓名
-	majorEN = {Next-Generation Electronic Information Science and Technology (Including Quantum Technology, etc.)}, % 专业名称
+	majorEN = {\shortstack[c]{Next-Generation Electronic Information Science \\ and Technology(Including Quantum Technology, etc.)}}, % 专业名称
 	supervisorEN = {Xinzhu Sang}, % 导师姓名
 	instituteEN = {School of Electronic Engineering} % 学院名称
 	%instituteEN = {Your Institute1\\Your Institute2} % 双行学院的写法
